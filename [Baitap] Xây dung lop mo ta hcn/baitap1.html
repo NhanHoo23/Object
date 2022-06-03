@@ -33,6 +33,7 @@
             drawRectangle() {
                 let rectangle = document.getElementById("rectangle");
                 let ctx = rectangle.getContext("2d");
+                ctx.clearRect(0, 100, 600, 500)
                 ctx.strokeRect(0, 100, this.width, this.height)
             }
         }
