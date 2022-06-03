@@ -5,9 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <canvas id="rectangle" width="300" height="200" ></canvas>
+    <canvas id="rectangle" width="600" height="500" style="border: 1px solid black;"></canvas> <br>
 </head>
 <body>
+<input type="text" id="width">
+<input type="text" id="height">
+<button onclick="creatRec()">Tạo hình chữ nhật</button>
+<button onclick="area()">Tính chu vi</button>
+<button onclick="perimeter()">Tính diện tích</button>
+<p id="show"></p>
+
     <script>
         class Rectangle {
             constructor(width, height) {
@@ -30,10 +37,19 @@
             }
         }
 
-        let rectangle = new Rectangle(200, 100)
-        document.write("<br>"+"Diện tích hình chữ nhật là: " + rectangle.getArea() + "<br>");
-        document.write("Chu vi hình chữ nhật là: " + rectangle.getPerimeter() );
-        rectangle.drawRectangle()
+        let rectangle
+        function creatRec() {
+            let width = +document.getElementById("width").value
+            let height = +document.getElementById("height").value
+            rectangle = new Rectangle(width, height)
+            rectangle.drawRectangle()
+        }
+        function area() {
+            document.getElementById("show").innerHTML = ("<br>"+"Diện tích hình chữ nhật là: " + rectangle.getArea() + "<br>");
+        }
+        function perimeter() {
+            document.getElementById("show").innerHTML = ("Chu vi hình chữ nhật là: " + rectangle.getPerimeter() );
+        }
     </script>
 </body>
 </html>
